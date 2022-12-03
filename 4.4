@@ -1,0 +1,25 @@
+import random
+
+
+def sr(a):
+    if len(a) <= 1:
+        return a
+    else:
+        i = random.choice(a)
+    x = [n for n in a if n < i]
+    y = [i] * a.count(i)
+    z = [n for n in a if n > i]
+    return sr(x) + y + sr(z)
+
+def rs(a):
+    q = len(a)
+    c = True
+    while q > 1 or c:
+        q = max(1, int(q / 1.247))
+        c = False
+        for l in range((len(a)) - q):
+            g = l + q
+            if a[l] > a[g]:
+                a[l], a[g] = a[g], a[l]
+                c = True
+    return a
