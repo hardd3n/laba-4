@@ -1,0 +1,39 @@
+print("Пирамидальной сортировка"); print()
+
+x=int(input('Введите количество чисел в массиве: '))
+b=[0]*x
+print()
+for i in range(x):
+    print('Введите число', i+1 ,'элемента массива :')
+    b[i]=int(input())
+print(); print('Задан массив :', b); print()
+
+def heapify(array, n, i):
+    largest = i
+    y = 2 * i + 1
+    z = 2 * i + 2
+
+    if y < n and array[i] < array[y]:
+        largest = y
+    if z < n and array[largest] < array[z]:
+        largest = r
+
+    if largest != i:
+        array[i], array[largest] = array[largest], array[i]
+        heapify(array, n, largest)
+
+
+def heapSort(array):
+    n = len(array)
+    с = 0
+    for i in range(n // 2, -1, -1):
+        heapify(array, n, i)
+    for i in range(n - 1, 0, -1):
+        array[i], array[0] = array[0], array[i]
+        heapify(array, i, 0)
+        с += 1
+        print("Действие №", с, array)
+    print ()
+    return array
+
+print('Готовый массив:', heapSort(b))
