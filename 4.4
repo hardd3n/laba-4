@@ -1,0 +1,28 @@
+import sort
+import timeit
+
+
+print('Методы сортировки:'); print('  1. Быстрая     2. Расчёска'); print()
+j = input('Введите  Метод сортировки, который хотите использовать: ')
+while j not in('Быстрая','быстрая','Расчёска','расчёска'):
+    j = input('Данный метод не поддерживается программой, введите поддерживаемый метод сортирови: ')
+print()
+
+x=int(input('Введите количество чисел : '))
+a=[0]*x
+print()
+for i in range(x):
+    print('Введите число', i+1 ,'элемента массива:')
+    a[i]=int(input())
+print(); print('Задан массив:', a); print()
+
+set_up='''sort.sr(a)'''
+set_up1='''sort.rs(a)'''
+
+if j in ('Быстрая','быстрая'):
+    print('Результат быстрой сортировки:'); print(sort.sr(a)); print()
+    print('Время затраченное на выполнение программы:', timeit.timeit(setup=set_up, number=100000, globals=globals()))
+
+if j in ('Расчёска','расчёска'):
+    print('Результат сортировки методом "Расчёска":'); print(sort.rs(a)); print()
+    print('Время затраченное на выполнение программы:', timeit.timeit(setup=set_up, number=100000, globals=globals()))
